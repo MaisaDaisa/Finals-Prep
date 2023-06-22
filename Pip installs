@@ -1,0 +1,8 @@
+pip install -U Flask-SQLAlchemy
+pip install requests
+pip install bs4
+pip install flask
+
+from flask import Flask, jsonify, render_template, request
+from bs4 import BeautifulSoup
+from flask_sqlalchemy import SQLAlchemy
