@@ -68,6 +68,8 @@ def edit_tweet(id):
         tweet.likes = likes
         db.session.commit()
         return "Edited", 200
+    else:
+        return "Tweet does not Exist"
 
 # curl -X DELETE http://127.0.0.1:5000/api/1
 @app.route("/api/<int:id>", methods=['Delete'])
