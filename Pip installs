@@ -2,6 +2,7 @@ pip install -U Flask-SQLAlchemy
 pip install requests
 pip install bs4
 pip install flask
+pip install sqlite3
 
 from flask import Flask, jsonify, render_template, request
 from bs4 import BeautifulSoup
