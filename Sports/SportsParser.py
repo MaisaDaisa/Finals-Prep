@@ -20,7 +20,7 @@ try:
                 team = Team(group, row_info[1], row_info[-2])
                 db.add_team(team)
 except:
-    print("Teams Exist moving on....")
+    print("Teams Exist moving on.... Skipping Database\n")
 
 while True:
     print("Please Enter 'Group' if you want to search by Groups and get their losers and winners")
@@ -47,3 +47,6 @@ while True:
         else:
             print('Invalid Team')
             continue
+    else:
+        print("Invalid Choice! Try Again!")
+        continue

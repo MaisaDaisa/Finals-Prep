@@ -12,7 +12,7 @@ class BasketballDatabase:
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS basketball(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                team TEXT UNIQUE,
+                team TEXT,
                 points INTEGER
             )"""
         )

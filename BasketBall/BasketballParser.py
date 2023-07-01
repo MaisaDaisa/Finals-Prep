@@ -19,7 +19,7 @@ try:
         team = Team(name, points)
         db.add_team(team)
 except:
-    print("Already Exists Moving on...")
+    print("Already Exists Moving on... Skipping Database\n")
 
 while True:
     print("Please Enter 'Team' if you want to get specific Team's stats")
