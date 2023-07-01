@@ -13,18 +13,18 @@ class TeamsDatabase:
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS teams(
-                id INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 groupe TEXT,
-                team TEXT UNIQUE,
+                team TEXT UNIQUE, 
                 score INT
             )
         """)
+        # TEAM UNIQUE იმიტომ დავწერე, რომ მეორეჯერ დამატებისას ამოაგდოს ერრორი და ამით დაისკიპოს დამატება, რადგან Try მაქ გაშვებული
 
     def add_team(self, Team):
         self.cursor.execute("""
-            INSERT INTO teams VALUES 
-            (?, ?, ?, ?)
-        """, (self.get_last_id()+1, Team.groupe, Team.team, Team.score))
+            INSERT INTO teams (groupe, team, score) VALUES (?, ?, ?)
+        """, (Team.groupe, Team.team, Team.score))
         self.conn.commit()
 
     def get_team_by_name(self, team):
@@ -45,13 +45,3 @@ class TeamsDatabase:
         rows = self.cursor.fetchall()
         teams = [Team(*row[1:]) for row in rows]
         return teams
-
-
-    def get_last_id(self):
-        self.cursor.execute("""
-            SELECT id FROM teams ORDER BY id DESC LIMIT 1
-        """)
-        row = self.cursor.fetchone()
-        if row is None:
-            return 0
-        return row[0]

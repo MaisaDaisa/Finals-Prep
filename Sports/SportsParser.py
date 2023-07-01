@@ -30,7 +30,10 @@ while True:
         group = input("Input Group letter only: ")
         group_list = db.get_team_by_groupe(group)
         if len(group_list) != 0:
-            print(f"dominator of this group is {group_list[0].team} with {group_list[0].score}. Loser of this Group is {group_list[-1].team} with {group_list[-1].score}" )
+            print(f"\ndominator of this group is {group_list[0].team} with {group_list[0].score}. Loser of this Group is {group_list[-1].team} with {group_list[-1].score}\n")
+            print(f"These are All Groups in this Letter thingy: \n")
+            for group in group_list:
+                print(f"{group.team} WITH {group.score} POINTS")
             break
         else:
             print('Invalid Group')
