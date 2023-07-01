@@ -7,7 +7,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///twitter.db'
 db = SQLAlchemy(app)
 
 class Tweet(db.Model):
-    __tablename__ = 'sports'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(30))
     description = db.Column(db.String(250))
