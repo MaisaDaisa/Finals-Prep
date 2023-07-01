@@ -34,7 +34,7 @@ class ComedyBook(Book):
             print("Invalid Rating Number")
 
 
-buki = ComedyBook("jafara", 'kai kacoba', 2000, "gaurga", 4.6, "Jigarsona")
+buki = ComedyBook("jafara mokvda", 'avtori', 2000, "giorgi tamarashvili", 9.6, "Sasacilo")
 print(buki._rating)
 buki.rating = 10
 print(buki._rating)
