@@ -28,9 +28,8 @@ class TeamsDatabase:
         self.conn.commit()
 
     def get_team_by_name(self, team):
-        self.cursor.execute("""
-            SELECT * FROM teams WHERE team=?
-        """, (team,))
+        self.cursor.execute(f"""
+            SELECT * FROM teams WHERE team LIKE '%{team}%'""")
         row = self.cursor.fetchone()
         if row is None:
             return None
