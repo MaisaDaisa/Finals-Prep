@@ -19,6 +19,7 @@ class VendingMachine:
     @property
     def cash_collected(self):
         return self.__cash_collected
+    # წესით ეგ მიუწვდომელი უნდა იყოს, მაგრამ რადგან property-ს ვხმარობთ იგი შეგვიძლია გამოვიძახოთ
 
     @cash_collected.setter
     def cash_collected(self, cash: float):
