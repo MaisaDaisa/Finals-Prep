@@ -23,7 +23,7 @@ class VendingMachine:
 
     @cash_collected.setter
     def cash_collected(self, cash: float):
-        if cash >= 0:
+        if cash >= 0.0:
             self.__cash_collected = cash
         else:
             print("invalid Cash, You really want to go bankrupt With minuses?")

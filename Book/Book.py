@@ -28,7 +28,7 @@ class ComedyBook(Book):
 
     @rating.setter
     def rating(self, rating: float):
-        if 0 <= rating <= 10:
+        if 0.0 <= rating <= 10.0:
             self._rating = rating
         else:
             print("Invalid Rating Number")
