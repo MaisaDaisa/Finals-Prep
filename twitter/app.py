@@ -32,6 +32,16 @@ def get_tweets():
     tweet_list = [tweet.to_dict() for tweet in Tweet.query.all()]
     return tweet_list
 
+# curl -X GET -H "Content-Type: application/json" http://127.0.0.1:5000/api/1
+@app.route("/api/<int:id>", methods=['GET'])
+def get_tweet_by_id(id):
+    tweet_db = Tweet.query.get(id)
+    try:
+        tweet = tweet_db.to_dict()
+        return tweet
+    except AttributeError:
+        return "No such Tweet has Been Found"
+
 # curl -X POST -H "Content-Type: application/json" -d '{"title": "Trump Dead", "description": "Oh no He Dead", "author": "Maisa", "upload_date": "23/03/2021", "edit_date": "20/05/2022", "likes": 202}' http://127.0.0.1:5000/api
 @app.route("/api", methods=['POST'])
 def create_tweet():
